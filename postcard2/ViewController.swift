@@ -9,7 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageText: UITextField!
+    @IBOutlet weak var mailButton: UIButton!
 
+    @IBAction func sendMessage(sender: UIButton) {
+        messageLabel.hidden = false
+        messageLabel.text = messageText.text
+        
+        messageText.text = ""
+        messageText.resignFirstResponder()
+        
+        mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
